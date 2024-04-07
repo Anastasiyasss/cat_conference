@@ -1,0 +1,145 @@
+@media (max-width: 768px) {
+    .header__inner {
+      display: none;
+    }
+  .navbar {
+    background: rgba(126, 43, 134, 0.69);
+  }
+    .hamb {
+      display: flex;
+      align-items: center;
+    }
+  
+    .hamb__field {
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+  
+    .bar {
+      display: block;
+      width: 30px;
+      height: 3px;
+      margin: 6px auto;
+      background-color: #fff;
+      transition: 0.2s;
+    }
+  
+    .popup {
+      position: fixed;
+      top: 57px;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background-color: white;
+      z-index: 100;
+      display: flex;
+      transition: 0.3s;
+    }
+  
+    .popup.open {
+      left: 0;
+    }
+  
+    .popup .menu {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: start;
+      padding: 25px 0;
+      overflow: auto;
+    }
+  
+    .popup .menu > li {
+      width: 100%;
+    }
+  
+    .popup .menu > li > a {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      padding: 15px 0;
+      font-size: 20px;
+      font-weight: bold;
+      color: #3f3f3f;
+    }
+  
+    .popup .menu > li > a:hover {
+      background-color: rgba(122, 82, 179, 0.1);
+    }
+  
+    .hamb__field.active .bar:nth-child(2) {
+      opacity: 0;
+    }
+  
+    .hamb__field.active .bar:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+  
+    .hamb__field.active .bar:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+  
+    body.noscroll {
+      overflow: hidden;
+    }
+  }
+  .menu {
+    display: none;
+  }
+ 
+  .menu li {
+    position: relative;
+    display: inline-block;
+    width: 200px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    color: #fff;
+    font-size: 24px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: sans-serif;
+    box-sizing: border-box;
+    background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+    background-size: 400%;
+    border-radius: 30px;
+    z-index: 1;
+    margin-bottom: 10px;
+    line-height: 35px;
+  }
+   
+  .menu li:hover {
+    animation: animate 8s linear infinite;
+  }
+   
+  @keyframes animate {
+    0% {
+      background-position: 0%;
+    }
+    100% {
+      background-position: 400%;
+    }
+  }
+   
+  .menu li:before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    bottom: -5px;
+    left: -5px;
+    z-index: -1;
+    background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+    background-size: 400%;
+    border-radius: 40px;
+    opacity: 0;
+    transition: .5s;
+  }
+   
+  .menu li:hover:before {
+    filter: blur(20px);
+    opacity: 1;
+    animation: animate 8s linear infinite;
+  }
